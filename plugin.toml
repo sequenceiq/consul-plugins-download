@@ -1,0 +1,11 @@
+[plugin]
+name = "download"
+description = "downloads a file from the specified URL"
+version = "1.0"
+maintainer_name = "SequenceIQ"
+maintainer_email = "info@sequenceiq.com"
+website_url = "http://github.com/sequenceiq/consul-plugins-download"
+
+[plugin.config]
+
+[plugin.compatibility]

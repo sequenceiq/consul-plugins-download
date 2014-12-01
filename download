@@ -1,0 +1,17 @@
+#!/bin/bash
+
+: ${DOWNLOAD_LOGFILE:=/tmp/plugn_download.log}
+: ${DEBUG:=1}
+
+main(){
+  while read url dest; do
+    debug "url=$url dest=$dest"
+    curl -Lko $dest $url
+  done
+}
+
+debug(){
+  [[ "$DEBUG" ]] && echo "[DEBUG] $*" >> $DOWNLOAD_LOGFILE
+}
+
+[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
