@@ -4,10 +4,9 @@
 : ${DEBUG:=1}
 
 main(){
-  while read url dest; do
-    debug "url=$url dest=$dest"
-    curl -Lko $dest $url
-  done
+  read url dest
+  debug "url=$url dest=$dest"
+  curl -Lko $dest $url || debug "Couldn't download target from URL to destination"
 }
 
 debug(){
