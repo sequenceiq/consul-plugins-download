@@ -1,16 +1,16 @@
 #!/bin/bash
 
-: ${DOWNLOAD_LOGFILE:=/tmp/plugn_download.log}
+: ${LOGFILE:=/tmp/plugn_download.log}
 : ${DEBUG:=1}
 
 main(){
-  read url dest
+  echo $PAYLOAD | read url dest
   debug "url=$url dest=$dest"
-  curl -Lko $dest $url || debug "Couldn't download target from URL to destination"
+  curl -Lko $dest $url
 }
 
 debug(){
-  [[ "$DEBUG" ]] && echo "[DEBUG] $*" >> $DOWNLOAD_LOGFILE
+  [[ "$DEBUG" ]] && echo "[DEBUG] $*" >> $LOGFILE
 }
 
 [[ "$0" == "$BASH_SOURCE" ]] && main "$@"
