@@ -1,0 +1,11 @@
+#!/bin/bash
+
+main(){
+  echo "Post install test" > /tmp/post-install-success
+}
+
+debug(){
+  [[ "$DEBUG" ]] && echo "[DEBUG] $*" >> $LOGFILE
+}
+
+[[ "$0" == "$BASH_SOURCE" ]] && main "$@"
