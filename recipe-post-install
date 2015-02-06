@@ -1,7 +1,21 @@
 #!/bin/bash
 
+: ${HDP_VERSION:=2.2.0.0-2041}
+
+: ${SPARK_VERSION:=1.2.0}
+: ${SPARK_DIST_PREFIX_VERSION:=2.2.0.0-82}
+: ${SPARK_HADOOP_VERSION:=2.6.0}
+
+SPARK_DIST_VERSION=$SPARK_VERSION.$SPARK_DIST_PREFIX_VERSION-bin-$SPARK_HADOOP_VERSION.$HDP_VERSION
+SPARK_ASSEMBLY_VERSION=$SPARK_VERSION.$SPARK_DIST_PREFIX_VERSION-hadoop$SPARK_HADOOP_VERSION.$HDP_VERSION
+
 main(){
   echo "Post install test" > /tmp/post-install-success
+  curl -s http://public-repo-1.hortonworks.com/HDP-LABS/Projects/spark/$SPARK_VERSION/spark-$SPARK_DIST_VERSION.tgz | tar -xz -C /tmp
+  hadoop fs -rm -r -f /spark
+  echo "upload assembly jar to hdfs"
+  hadoop fs -mkdir /spark
+  hadoop fs -put /tmp/spark/lib/spark-assembly-$SPARK_ASSEMBLY_VERSION.jar /spark/
 }
 
 debug(){
