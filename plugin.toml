@@ -1,10 +1,10 @@
 [plugin]
-name = "download"
-description = "downloads a file from the specified URL"
+name = "mysql-workaround"
+description = "removes the line from Ambari's mysql addUser script that stops the mysql service, so Ranger blueprint install won't fail due to connection refused."
 version = "1.0"
 maintainer_name = "SequenceIQ"
 maintainer_email = "info@sequenceiq.com"
-website_url = "http://github.com/sequenceiq/consul-plugins-download"
+website_url = "http://github.com/sequenceiq/consul-plugins-mysql-workaround"
 
 [plugin.config]
 
