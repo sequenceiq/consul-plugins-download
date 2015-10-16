@@ -1,10 +1,10 @@
 [plugin]
-name = "mysql-workaround"
-description = "removes the line from Ambari's mysql addUser script that stops the mysql service, so Ranger blueprint install won't fail due to connection refused."
+name = "ranger-db"
+description = "Initializes and starts a PSQL database to store Ranger data."
 version = "1.0"
 maintainer_name = "SequenceIQ"
 maintainer_email = "info@sequenceiq.com"
-website_url = "http://github.com/sequenceiq/consul-plugins-mysql-workaround"
+website_url = "http://github.com/sequenceiq/consul-plugins-ranger-db"
 
 [plugin.config]
 
