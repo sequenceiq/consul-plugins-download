@@ -17,6 +17,6 @@ main(){
   service postgresql start
 }
 
-exec &> "$LOGFILE"
+exec &>> "$LOGFILE"
 [[ "$0" == "$BASH_SOURCE" ]] && main "$@"
 
