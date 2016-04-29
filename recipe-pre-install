@@ -9,7 +9,7 @@ main(){
   fi
 
   export ROOT_PW=admin
-    export PGDATA=/var/lib/pgsql/data
+  export PGDATA=/var/lib/pgsql/data
 
 
   echo "$ROOT_PW" >> /tmp/pw
