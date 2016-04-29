@@ -3,18 +3,21 @@
 : ${LOGFILE:=/var/log/consul-watch/consul_handler.log}
 
 main(){
+  yum -y install postgresql-server postgresql-contrib
   if service postgresql status > /dev/null; then
     service postgresql stop
   fi
 
   export ROOT_PW=admin
-  export PGDATA=/var/lib/pgsql/data
+    export PGDATA=/var/lib/pgsql/data
 
-  rm -rf $PGDATA
+
   echo "$ROOT_PW" >> /tmp/pw
+  rm -rf $PGDATA
   su postgres -c 'initdb -U postgres --pwfile=/tmp/pw --auth=md5'
   rm -f /tmp/pw
-  service postgresql start
+  systemctl enable postgresql
+  systemctl start postgresql
 }
 
 exec &>> "$LOGFILE"
