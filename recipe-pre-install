@@ -19,7 +19,7 @@ main(){
   systemctl enable postgresql
   systemctl start postgresql
   yum -y install java
-  curl -O /usr/share/java/postgres-jdbc-driver.jar https://github.com/sequenceiq/consul-plugins-ranger-db/raw/master/postgresql-8.4-703.jdbc4.jar 
+  curl -O /usr/share/java/sqljdbc41.jar https://github.com/sequenceiq/consul-plugins-ranger-db/raw/master/postgresql-8.4-703.jdbc4.jar 
 }
 
 exec &>> "$LOGFILE"
