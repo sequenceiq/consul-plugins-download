@@ -18,7 +18,6 @@ main(){
   rm -f /tmp/pw
   systemctl enable postgresql
   systemctl start postgresql
-  yum -y install java
 }
 
 exec &>> "$LOGFILE"
